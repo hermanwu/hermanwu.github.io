@@ -2,7 +2,7 @@
 
 var bio = {
 	"name": "Herman Wu",
-	"role": "Typical Asian who likes Design",
+	"role": "Web Developer",
 	"contacts": {
 		"mobile": "678-986-1999",
 		"email": "herman.wrt@gmail.com",
@@ -44,7 +44,7 @@ bio.display = function(){
 
 	$("#header").append(formattedBioPic);
 	$("#header").append(formattedWelcomeMsg);
-	
+
 	if(bio.skills.length > 0){
 		$("#header").append(HTMLskillsStart);
 		for(skill in bio.skills){
@@ -128,13 +128,13 @@ project.display = function(){
 		for(projectIndex in project.projects){
 			var formattedTitle = HTMLprojectTitle.replace("%data%", project.projects[projectIndex].title);
 			$(".project-entry:last").append(formattedTitle);
-	
+
 			var formattedDates = HTMLprojectDates.replace("%data%", project.projects[projectIndex].dates);
 			$(".project-entry:last").append(formattedDates);
 
 			var formattedDescription = HTMLprojectDescription.replace("%data%", project.projects[projectIndex].description);
 			$(".project-entry:last").append(formattedDescription);
-			
+
 			for(projectImageIndex in project.projects[projectIndex].images){
 				var formattedImage = HTMLprojectImage.replace("%data%", project.projects[projectIndex].images[projectImageIndex]);
 				$(".project-entry:last").append(formattedImage);
@@ -188,7 +188,7 @@ education.display = function(){
 		for(schoolIndex in education.schools){
 			var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[schoolIndex].name);
 			$(".education-entry:last").append(formattedSchoolName);
-	
+
 			var formattedDates = HTMLschoolDates.replace("%data%", education.schools[schoolIndex].dates);
 			$(".education-entry:last").append(formattedDates);
 
@@ -215,7 +215,7 @@ education.display = function(){
 			var formattedCertificateURL = HTMLonlineURL.replace("%data%", education.onlineCourses[courseIndex].certifcateUrl);
 
 			$(".education-entry:last").append(formattedTitleWithSchool);
-			$(".education-entry:last").append(formattedDates); 
+			$(".education-entry:last").append(formattedDates);
 			$(".education-entry:last").append(formattedCertificateURL);
 		}
 
