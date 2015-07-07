@@ -1,220 +1,101 @@
+
 * {
-  padding:0;
-  margin:0;
-  /*font-family: 'Roboto', sans-serif;*/
+    font-family: 'Architects Daughter', cursive;
 }
 
-.clearfix {
-  overflow: auto;
+/* header section */
+.logo-image {
+    float:left;
+    height:133px;
 }
 
-.education-entry, .work-entry, .project-entry {
-  padding-left: 5%;
-  padding-right: 5%;
-}
+/* Question?
+Previous reviewer told me that separate selectors need to be in different
+new lines according to http://udacity.github.io/frontend-nanodegree-styleguide/css.html
+"Selector and Declaration Separation" section.
 
-h1 {
-  font-size: 40px;
-  color: #F5A623;
-  line-height: 48px;
-  display: inline;
-}
-
-h2 {
-  font-weight: bold;
-  font-size: 24px;
-  color: #999999;
-  line-height: 29px;
-  padding: 10px;
-}
-
+However in the example, two selectors are separated by a "comma", which means that they
+are sibling relationship
+h1,
+h2,
 h3 {
-  font-style: italic;
-  font-size: 20px;
-  color: #000000;
-  line-height: 22px;
+    font-weight: normal;
+    line-height: 1.2;
 }
 
-h4 {
-  font-weight: bold;
-  font-size: 14px;
-  color: #4A4A4A;
-  line-height: 17px;
+On the other hand, my css selectors are not separated by a "comma", which is parent-child
+relationship. Do I still need to separate them in new lines?
+*/
+.project-page-header
+.title {
+    text-align: right;
 }
 
-h2, h3, h4, h5 {
-  padding:10px;
-  padding-left: 5%;
-  padding-right: 5%;
+/* Grid System */
+.row {
+    display:flex;
+    flex-wrap: wrap;
 }
 
-
-.date-text {
-  font-style: italic;
-  font-size: 14px;
-  color: #999999;
-  line-height: 16px;
-  float: left;
+.col-4 {
+    width:33.33%;
 }
 
-.location-text {
-  font-style: italic;
-  font-size: 14px;
-  color: #999999;
-  line-height: 16px;
-  float: right;
-
+.col-6 {
+    width:50%;
 }
 
-p {
-  font-size: 14px;
-  color: #333333;
-  line-height: 21px;
+.col-12 {
+    width:100%;
 }
 
-a {
-  color: #1199C3;
-  text-decoration: none;
-  margin-top: 10px;
-  display: block;
+/* Highlight Section */
+.highlights {
+    text-align: center;
 }
 
-.welcome-message {
-  font-style: italic;
-  font-size: 18px;
-  color: #F3F3F3;
-  line-height: 28px;
+.highlights-image {
+    width:98%;
 }
 
-#skillsH3 {
-  color: #F5AE23;
-  display: none;
+/* featured work section */
+.featured-work
+.col-4 {
+    text-align:center;
 }
 
-.orange {
-  background-color: #F5AE23;
+.project-image {
+    width: 90%;
 }
 
-.orange-text {
-  color: #F5AE23;
+.project-title {
+    color:dimgray;
+    margin-bottom: 1px;
 }
 
-.white-text {
-  font-weight: bold;
-  color: #FFFFFF;
+/* media query */
+@media screen and (max-width: 500px) {
+    .container {
+        font-size:1.2em;
+    }
+    .col-12-mobile {
+        width:100%
+    }
 }
 
-.gray {
-  background-color: #F3F3F3;
-  padding-bottom: 10px;
-  clear:both;
+@media screen and (min-width: 501px) and (max-width: 1050px) {
+    .container {
+        font-size:1.1em;
+    }
+    .col-6-tablet {
+        width:50%;
+    }
 }
 
-.dark-gray {
-  background-color: #4A4A4A;
-}
-
-/* TODO: Replace with image later */
-#header {
-  background-color: #484848;
-}
-
-.flex-box {
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 10px;
-}
-
-.center-content {
-  padding-top: 2.5%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 2.5%
-}
-
-ul {
-  list-style-type: none;
-}
-
-.biopic {
-  float: left;
-  padding: 10px;
-  width: 200px;
-  display: none;
-}
-
-img {
-  padding: 10px;
-}
-
-/* Bar chart stuff */
-.chart div {
-  font: 10px sans-serif;
-  background-color: #4A4A4A;
-  text-align: right;
-  padding: 3px;
-  margin: 1px;
-  height: 12px;
-  color: white;
-  display: inline-block;
-}
-
-span {
-  padding: 5px;
-}
-
-/*add css to setup max width of the image*/
-.project-entry img{
-  max-width:300px;
-}
-
-#letsConnect {
-  text-align: center;
-}
-
-@media only screen and (max-width: 1024px) {
-  #letsConnect {
-    margin-top: 5%;
-  }
-}
-
-@media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
-  }
-}
-
-@media only screen and (max-width: 750px) {
-  #letsConnect {
-    margin-top: 10%;
-  }
-  .biopic {
-    width: 150px;
-  }
-  .welcome-message {
-    display: none;
-  }
-}
-
-#map {
-  display: block;
-  height: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-#mapDiv {
-  height: 400px;
-  width: 100%;
-  padding-bottom: 5%;
-}
-
-@media only screen and (min-width: 750px) {
-  #skillsH3,
-  .biopic {
-    display: block;
-  }
+@media screen and (min-width: 1050px) {
+    .container {
+        width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

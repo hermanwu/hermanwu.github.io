@@ -2,7 +2,7 @@
 
 var bio = {
 	"name": "Herman Wu",
-	"role": "Web Developer",
+	"role": "Typical Asian who likes Design",
 	"contacts": {
 		"mobile": "678-986-1999",
 		"email": "herman.wrt@gmail.com",
