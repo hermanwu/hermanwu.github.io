@@ -21,7 +21,6 @@ ul {
     list-style-type: none;
     padding:0;
     margin:0;
-    color: inherit;
 }
 
 
@@ -35,6 +34,8 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
+
+
 
 .top-buffer {
     margin-top:20px;
@@ -51,6 +52,13 @@ img {
     bottom: 0;
 }
 
+.nav-selection{
+    color: black;
+}
+
+.active {
+    color: #e68c80;
+}
 
 .nav-selection:hover {
     color: #e68c80;
@@ -62,37 +70,9 @@ img {
 
 
 
-/* floating section */
-.floating-selection {
-
-  background-color: white;
-  position: absolute;
-  width: 100px;
-  margin: 50px 0px 0px 50px;
-
-}
 
 
-/* Highlight Section */
-.highlights {
-    text-align: center;
-}
 
-.highlights-image {
-    width:98%;
-}
-
-/* featured work section */
-
-.project-image {
-    width: 90%;
-    text-align:center;
-}
-
-.project-title {
-    color:dimgray;
-    margin-bottom: 1px;
-}
 
 /* media query */
 /* for mobile device */

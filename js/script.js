@@ -1,13 +1,20 @@
 $( document ).ready(function() {
 
+    startPage();
+
+    function startPage(){
+
+        //$(".section").fadeIn("slow");
+
+    }
 
 
-    switchSection();
-    goToHomePage();
+    //switchSection();
+    //goToHomePage();
 
 
 
-
+    /*
     function switchSection(){
         $(".nav-selection").on("click", function() {
             // hide all sections
@@ -29,4 +36,5 @@ $( document ).ready(function() {
             $(".home-page-section").fadeIn("slow");
         });
     }
+    */
 });
