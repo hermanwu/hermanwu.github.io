@@ -1,6 +1,8 @@
 
 /* global style settings */
-* {
+.nav-bar,
+.home-page-section
+ {
     font-family: 'Architects Daughter', cursive;
 }
 
@@ -10,20 +12,27 @@ a, ul {
     padding:0;
     margin:0;
 }
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.top-buffer {
+    margin-top:20px;
+}
 
 /* header section */
 .logo-image {
     float:left;
-    height:133px;
-    margin-left: 40px;
-    margin-right: 10px;
+    height:100px;
 }
 
 .nav-container {
-    text-align: center;
-    margin: auto 0;
     font-size: 20px;
+    bottom: 0;
 }
+
 
 .nav-selection:hover {
     color: #e68c80;
@@ -38,26 +47,7 @@ a, ul {
   margin: 50px 0px 0px 50px;
 
 }
-/* Grid System */
-.row {
-    display:flex;
-    flex-wrap: wrap;
-}
-.col-3 {
-    width:25%;
-}
 
-.col-4 {
-    width:33.33%;
-}
-
-.col-6 {
-    width:50%;
-}
-
-.col-12 {
-    width:100%;
-}
 
 /* Highlight Section */
 .highlights {
@@ -69,13 +59,10 @@ a, ul {
 }
 
 /* featured work section */
-.featured-work
-.col-4 {
-    text-align:center;
-}
 
 .project-image {
     width: 90%;
+    text-align:center;
 }
 
 .project-title {
@@ -85,6 +72,12 @@ a, ul {
 
 /* media query */
 /* for mobile device */
+@media screen and (min-width: 991px) {
+    .nav-container {
+        margin-top: 50px;
+    }
+}
+/*
 @media screen and (max-width: 600px) {
     .container {
         font-size:1.2em;
@@ -93,8 +86,9 @@ a, ul {
         width:100%
     }
 }
-
+*/
 /* for tablet */
+/*
 @media screen and (min-width: 601px) and (max-width: 1200px) {
     .container {
         font-size:1.1em;
@@ -103,8 +97,9 @@ a, ul {
         width:50%;
     }
 }
-
+*/
 /* for desktop */
+/*
 @media screen and (min-width: 1201px) {
     .container {
         width: 1100px;
@@ -112,3 +107,4 @@ a, ul {
         margin-right: auto;
     }
 }
+*/

@@ -6,68 +6,91 @@
     <title>Herman Portfolio</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link href="lib/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
 
-  <body>
-
-    <header class="row project-page-header">
-      <div class="col-3 col-6-tablet col-12-mobile logo">
+  <body class="container">
+    <header class="row nav-bar top-buffer">
+      <div class="col-lg-3 col-md-3 col-xs-12 logo">
         <div>
           <img class="logo-image" src="img/logo.png" alt="Website logo">
         </div>
-        <h1>Herman</h1>
-        <h4>App Ninja</h4>
+        <div title>
+          <h3>Herman</h3>
+          <h4>App Ninja</h4>
+        </div title>
       </div>
-      <div class="col-6 col-12-mobile nav-container">
+      <div class="col-lg-6 col-md-6 col-xs-12 nav-container">
         <nav>
-          <a>" stay</a>
-          <a class="nav-selection" href="">hungry</a>
-          <a>, stay</a>
-          <a class="nav-selection" href="">foolish</a>
-          <a>"</a>
+          <h3 class="text-center">
+            <span>" life is about </span>
+            <a class="nav-selection" href="">CREATING</a>
+            <a class="nav-selection" href="">myself</a>
+            <span>"</span>
+          </h3>
         </nav>
       </div>
     </header>
-    <div class="floating-selection">
-      <ul>
-        <li>project 1</li>
-        <li>project 2</li>
-        <li>project 3</li>
-      </ul>
-    </div>
-    <div class="container">
-      <div class="row">
-          <div class="col-12 ">
-            <h2>Highlights</h2>
+
+    <div class="container-section">
+      <!-- home page section -->
+      <div home-page-section hidden>
+        <div class="row top-buffer">
+            <div class="col-lg-12">
+              <h2>Highlights</h2>
+            </div>
+        </div>
+        <div class="row top-buffer">
+            <div class="col-lg-12 col-md-12 col-xs-12 highlights">
+              <img class="highlights-image" src="http://placehold.it/960x350"  alt="Highlights of all projects">
+            </div>
+        </div>
+        <div class="row top-buffer">
+          <div class="col-lg-12">
+            <h3>Featured Work</h3>
+          </div>
+        </div>
+        <div class="row top-buffer featured-work">
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <img class = "project-image" src="http://placehold.it/600x300" alt="Home screen of the stats portal">
+            <h4 class = "project-title">Stats Monitoring Portal</h4>
+            <a href="https://github.com/hermanwu/stats-portal">GitHub</a>
+          </div>
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <img class = "project-image" src="http://placehold.it/600x300" alt="Screenshot of the migration tools">
+            <h4 class = "project-title">Mobile Solution Migration Tools</h4>
+            <a href="http://www.youtube.com">Youtube</a>
+          </div>
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <img class = "project-image" src="http://placehold.it/600x300" alt="Memo of the seniro design project">
+            <h4 class = "project-title">Senior design</h4>
+            <a href="https://github.com/hermanwu/seniordesign">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <!-- CREATING section -->
+      <div projects-section>
+          <div class="row top-buffer">
+            <div class="col-lg-2">
+              <ul>
+                <li>project 1</li>
+                <li>project 2</li>
+              </ul>
+            </div>
+            <div class="col-lg-10">
+              <h1>
+                Data Utilization Tool
+              </h1>
+            </div>
           </div>
       </div>
-      <div class="row">
-          <div class="col-12 highlights">
-            <img class="highlights-image" src="http://placehold.it/960x350"  alt="Highlights of all projects">
-          </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <h2>Featured Work</h2>
-        </div>
-      </div>
-      <div class="row featured-work">
-        <div class="col-4 col-6-tablet col-12-mobile">
-          <img class = "project-image" src="http://placehold.it/600x300" alt="Home screen of the stats portal">
-          <h4 class = "project-title">Stats Monitoring Portal</h4>
-          <a href="https://github.com/hermanwu/stats-portal">GitHub</a>
-        </div>
-        <div class="col-4 col-6-tablet col-12-mobile">
-          <img class = "project-image" src="http://placehold.it/600x300" alt="Screenshot of the migration tools">
-          <h4 class = "project-title">Mobile Solution Migration Tools</h4>
-          <a href="http://www.youtube.com">Youtube</a>
-        </div>
-        <div class="col-4 col-6-tablet col-12-mobile">
-          <img class = "project-image" src="http://placehold.it/600x300" alt="Memo of the seniro design project">
-          <h4 class = "project-title">Senior design</h4>
-          <a href="https://github.com/hermanwu/seniordesign">GitHub</a>
-        </div>
-      </div>
+      <!-- MYSELF section -->
+
     </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
   </body>
 </html>
