@@ -1,5 +1,6 @@
 
 /* global style settings */
+
 .nav-bar,
 .home-page-section {
     font-family: 'Architects Daughter', cursive;
@@ -55,6 +56,11 @@ img {
     color: #e68c80;
     text-decoration: none;
 }
+
+
+/* all section setting */
+
+
 
 /* floating section */
 .floating-selection {

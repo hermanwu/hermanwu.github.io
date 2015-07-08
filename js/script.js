@@ -1,23 +1,32 @@
 $( document ).ready(function() {
 
+
+
     switchSection();
     goToHomePage();
+
 
 
 
     function switchSection(){
         $(".nav-selection").on("click", function() {
             // hide all sections
-            $(".section").addClass("hidden");
+            $(".section").hide();
             // only shows selected section
-            var buttonValue = $(this).attr("name");
-            $("." + buttonValue + "-section").removeClass("hidden");
+            var clicked = $(this).attr("name");
+            $("." + clicked + "-section").fadeIn("slow");
+
         });
     }
 
     function goToHomePage(){
-        $(".logo").on("click", function() {
-            console.log("test");
+        $(".section").hide();
+        $(".home-page-section").fadeIn("slow");
+
+        $(".logo-anchor").on("click", function() {
+            $(".section").hide();
+            // only shows selected section
+            $(".home-page-section").fadeIn("slow");
         });
     }
 });
