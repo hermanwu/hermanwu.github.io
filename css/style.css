@@ -1,6 +1,7 @@
 
 /* global style settings */
 
+.nav-container,
 .nav-bar,
 .home-page-section {
     font-family: 'Architects Daughter', cursive;
@@ -23,6 +24,10 @@ ul {
     margin:0;
 }
 
+span {
+    color: gray;
+}
+
 
 h4 {
     text-decoration: none;
@@ -35,21 +40,22 @@ img {
     margin-right: auto;
 }
 
+.gray-color{
+    color: gray;
+}
 
+.nav-bar{
+    margin: 20px 0px 50px 0px;
+}
 
 .top-buffer {
-    margin-top:20px;
+    margin-top:50px;
 }
 
 /* header section */
 .logo-image {
     float:left;
     height:100px;
-}
-
-.nav-container {
-    font-size: 20px;
-    bottom: 0;
 }
 
 .nav-selection{

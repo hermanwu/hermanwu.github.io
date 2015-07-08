@@ -1,6 +1,10 @@
 $( document ).ready(function() {
 
-    startPage();
+    //startPage();
+
+    switchFrame();
+
+
 
     function startPage(){
 
@@ -11,6 +15,22 @@ $( document ).ready(function() {
 
     //switchSection();
     //goToHomePage();
+
+    function switchFrame(){
+        var iframe = $("#projects-page-iframe");
+        $(".project-button").on("click", function() {
+            $(".project-button").removeClass("active");
+            var selectedProject = $(this);
+            var website = selectedProject.attr("value");
+            selectedProject.addClass("active");
+            iframe.attr("src", website, function(){
+                this.fadeIn("slow");
+            });
+        });
+
+        //console.log(iframe.contents().height() + 'is the height');
+        //iframe.attr("src", "http://www.cnn.com");
+    }
 
 
 
