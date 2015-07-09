@@ -7,12 +7,13 @@
     font-family: 'Architects Daughter', cursive;
 }
 
-.projects-section {
+.projects-section,
+.about-section {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-.about-section {
-    font-family: 'Josefin Sans', sans-serif;
+html {
+    overflow-y: scroll;
 }
 
 a,
@@ -45,7 +46,7 @@ img {
 }
 
 .nav-bar{
-    margin: 20px 0px 50px 0px;
+    margin: 20px 0px 20px 0px;
 }
 
 .top-buffer {

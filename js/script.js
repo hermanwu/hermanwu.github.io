@@ -4,18 +4,6 @@ $( document ).ready(function() {
 
     switchFrame();
 
-
-
-    function startPage(){
-
-        //$(".section").fadeIn("slow");
-
-    }
-
-
-    //switchSection();
-    //goToHomePage();
-
     function switchFrame(){
         var iframe = $("#projects-page-iframe");
         $(".project-button").on("click", function() {
@@ -23,9 +11,10 @@ $( document ).ready(function() {
             var selectedProject = $(this);
             var website = selectedProject.attr("value");
             selectedProject.addClass("active");
-            iframe.attr("src", website, function(){
-                this.fadeIn("slow");
-            });
+
+            iframe.attr("src", website);
+            iframe.hide();
+            iframe.fadeIn("slow");
         });
 
         //console.log(iframe.contents().height() + 'is the height');
