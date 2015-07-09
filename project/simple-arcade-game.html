@@ -34,8 +34,8 @@
     <header class="row">
       <h1 class="text-center">Simple Arcade Game</h1>
       <h3 >Skills</h3>
-      <div class="col-lg-3 col-lg-4 col-xs-6"><span>Objected-Oriented Javascript</span></div>
-      <div class="col-lg-3 col-lg-4 col-xs-6"><span>HTML 5 Canvas</span></div>
+      <div class="col-lg-3 col-lg-4 col-xs-6 text-center"><span>Objected-Oriented Javascript</span></div>
+      <div class="col-lg-3 col-lg-4 col-xs-6 text-center"><span>HTML 5 Canvas</span></div>
     </header>
     <div class="row">
       <h3>Results</h3>
@@ -45,49 +45,49 @@
       <p class="paragraph">Learned JavaScript’s object oriented programming features to write eloquently designed classes capable of creating countless instances of similarly functioning objects.</p>
 
       <img src="img/won.png" class="img-responsive center-block img-rounded">
-      
+
       <p class="paragraph"> Practised a variety of ways that inheritance and delegation can be used to create well-architected and performant applications.</p>
 
       <h3>Code Snippet</h3>
-      <div class="code-snippet"> 
+      <div class="code-snippet">
         <pre class="prettyprint">
-          "use strict";
-          // Entity represents a single element in the game
-          var Entity = function(){
-              //width and height are shared by all entities
-              //which are used to calcuate the relative positions
-              this.width = 101;
-              this.height = 83;
-              //default relative position is 0;
-              this.x = 0;
-              this.y = 0;
-          };
+"use strict";
+// Entity represents a single element in the game
+var Entity = function(){
+    //width and height are shared by all entities
+    //which are used to calcuate the relative positions
+    this.width = 101;
+    this.height = 83;
+    //default relative position is 0;
+    this.x = 0;
+    this.y = 0;
+};
 
-          //Player which can be controlled using keyboard
-          var Player = function(){
-              Entity.call(this);
-              //Player's character image
-              this.sprite = 'images/char-boy.png';
-              //Starting position on the game board
-              this.startingRow = 5;
-              this.startingCol = 2;  
-              //Current position on the game board
-              this.row = this.startingRow;
-              this.col = this.startingCol;
-              //Indicates how many gems have been collected by user
-              this.collectedGems = 0;
-              //This flag indicate whether player can move or not
-              this.moveAbility = true;
-          };
+//Player which can be controlled using keyboard
+var Player = function(){
+    Entity.call(this);
+    //Player's character image
+    this.sprite = 'images/char-boy.png';
+    //Starting position on the game board
+    this.startingRow = 5;
+    this.startingCol = 2;
+    //Current position on the game board
+    this.row = this.startingRow;
+    this.col = this.startingCol;
+    //Indicates how many gems have been collected by user
+    this.collectedGems = 0;
+    //This flag indicate whether player can move or not
+    this.moveAbility = true;
+};
 
-          // Inherit the Entity object;
-          Player.prototype = Object.create(Entity.prototype);
-          Player.prototype.contructor = Player;
+// Inherit the Entity object;
+Player.prototype = Object.create(Entity.prototype);
+Player.prototype.contructor = Player;
 
-          //Method to draw player on the game board
-          Player.prototype.render = function(){
-              ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-          };
+//Method to draw player on the game board
+Player.prototype.render = function(){
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
         </pre>
       </div>
 

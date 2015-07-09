@@ -23,7 +23,7 @@
       padding: 5px;
     }
     img {
-      width: 400px;
+      width: 500px;
       max-width: 300px;
     }
     </style>
@@ -32,58 +32,90 @@
 
   <body class="container">
     <header class="row">
+
       <h1 class="text-center">Test Driven Development</h1>
-      <h3 >Skills</h3>
-      <div class="col-lg-3 col-lg-4 col-xs-6"><span>Jasmine library/pattern</span></div>
-      <div class="col-lg-3 col-lg-4 col-xs-6"><span>HTML 5 Canvas</span></div>
+
+
+      <h3>Skills</h3>
+      <div class="col-lg-3 col-md-4 col-xs-6 text-center"><span>Jasmine framework</span></div>
+      <div class="col-lg-3 col-md-4 col-xs-6 text-center"><span>unit testing</span></div>
     </header>
     <div class="row">
+
+      <h3>Purpose</h3>
+      <p class="paragraph"> Testing is an important part of the development process and many organizations practice a standard of development known as "test-driven development". It also makes sure future feature development doesn't break existing features</p>
+
       <h3>Results</h3>
 
+      <img src="img/jasmine-result.png" class="img-responsive center-block img-rounded">
 
+      <p class="paragraph"> Wrote unit tests using Jasmine framework to verify the underlying business logic of the application as well as the event handling and DOM manipulation.</p>
 
-      <p class="paragraph"> Practised a variety of ways that inheritance and delegation can be used to create well-architected and performant applications.</p>
-
+      <p class="paragraph"> Tests Including:
+      <ul>
+        <li>Test that ensures allFeeds variable is not empty.</li>
+        <li>Test that loops through each feed in the allFeeds object and ensures it has a URL defined and that the URL is not empty.</li>
+        <li>Test that loops through each feed in the allFeeds object and ensures it has a name defined and that the name is not empty.</li>
+        <li>Test that ensures the menu element is hidden by default.</li>
+        <li>Test that ensures the menu changes visibility when the menu icon is clicked. This test should have two expectations: does the menu display when clicked and does it hide when clicked again.</li>
+        <li>Test that ensures when the loadFeed function is called and completes its work, there is at least a single .entry element within the .feed container.
+        Test that ensures when a new feed is loaded by the loadFeed function that the content actually changes.</li>
+      </ul>
+      </p>
       <h3>Code Snippet</h3>
       <div class="code-snippet">
         <pre class="prettyprint">
-          "use strict";
-          // Entity represents a single element in the game
-          var Entity = function(){
-              //width and height are shared by all entities
-              //which are used to calcuate the relative positions
-              this.width = 101;
-              this.height = 83;
-              //default relative position is 0;
-              this.x = 0;
-              this.y = 0;
-          };
+$(function() {
+    "use strict";
+    /* This suite is all about the RSS feeds definitions,
+     * the allFeeds variable in our application.
+     */
+    describe('RSS Feeds', function() {
+        /* It tests to make sure that the allFeeds variable has
+         * been defined and that it is not empty.
+         */
+        it('are defined', function() {
+            expect(allFeeds).toBeDefined();
+            expect(allFeeds.length).not.toBe(0);
+        });
+        /* Test that loops through each feed in the allFeeds object.
+         * and ensures it has a URL defined and that the URL is not empty.
+         */
+        it('urls are defined', function() {
+            //loop through each feeds
+            allFeeds.forEach(function(feed){
+                expect(feed.url).toBeDefined();
+                //toBeTruthy will detect null and empty string.
+                expect(feed.url).toBeTruthy();
+            });
+        });
+    });
 
-          //Player which can be controlled using keyboard
-          var Player = function(){
-              Entity.call(this);
-              //Player's character image
-              this.sprite = 'images/char-boy.png';
-              //Starting position on the game board
-              this.startingRow = 5;
-              this.startingCol = 2;
-              //Current position on the game board
-              this.row = this.startingRow;
-              this.col = this.startingCol;
-              //Indicates how many gems have been collected by user
-              this.collectedGems = 0;
-              //This flag indicate whether player can move or not
-              this.moveAbility = true;
-          };
+    // This suite is all about the new feed selection behaves
+    describe('New Feed Selection', function() {
+        /* This test ensures when a new feed is loaded by the loadFeed
+         * function that the content actually changes.
+         */
 
-          // Inherit the Entity object;
-          Player.prototype = Object.create(Entity.prototype);
-          Player.prototype.contructor = Player;
-
-          //Method to draw player on the game board
-          Player.prototype.render = function(){
-              ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-          };
+        // This variable is used to store first-time loaded contents.
+        var contents;
+        beforeEach(function(done) {
+            // Call loadFeed first time with id = 0.
+            loadFeed(0, function() {
+                // Store retreived contents in the 'contents' variable.
+                contents = $(".feed .entry").html();
+                // Call loadFeed again with a different id
+                loadFeed(1, done);
+            });
+        });
+        /* After second loadFeed is called, it is expected to see the contents
+         * in DOM do not match with the 'contents' variable.
+         */
+        it('changes content', function() {
+            expect($(".feed .entry").html()).not.toMatch(contents);
+        });
+    });
+}());
         </pre>
       </div>
 
