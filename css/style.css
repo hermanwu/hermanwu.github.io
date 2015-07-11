@@ -1,6 +1,18 @@
 
 /* global style settings */
 
+
+
+/* icon font **************************/
+@import url(http://weloveiconfonts.com/api/?family=zocial);
+
+/* zocial */
+[class*="zocial-"]:before {
+  font-family: 'zocial', sans-serif;
+  font-size: 25px;
+}
+/**************************************/
+
 .nav-container,
 .nav-bar,
 .home-page-section {
@@ -11,6 +23,10 @@
 .about-section {
     font-family: 'Source Sans Pro', sans-serif;
 }
+.footer {
+    position:fixed;
+    bottom:0;
+}
 
 html {
     overflow-y: scroll;
@@ -20,7 +36,6 @@ a,
 ul {
     cursor: pointer;
     text-decoration: none;
-    list-style-type: none;
     padding:0;
     margin:0;
 }
@@ -51,6 +66,9 @@ img {
 
 .top-buffer {
     margin-top:50px;
+}
+.bottom-buffer {
+    margin-bottom:50px;
 }
 
 /* header section */
