@@ -9,6 +9,7 @@
 /* zocial */
 [class*="zocial-"]:before {
   font-family: 'zocial', sans-serif;
+  width:70vm;
   font-size: 25px;
 }
 /**************************************/
