@@ -1,27 +1,43 @@
 $( document ).ready(function() {
 
-    //startPage();
+    readUrl();
+    switchSection();
 
-    switchFrame();
+    function readUrl(){
+        urlSectionInfo = window.location.search.slice(1);
+        if(urlSectionInfo.length > 0 && $("."+urlSectionInfo).length > 0 ) {
+            var selectedSectionDom = $("."+urlSectionInfo);
+            if(selectedSectionDom.length > 0) {
+                $(".project-button").removeClass("active");
+                selectedSectionDom.addClass("active");
+                var website = "project/" + selectedSectionDom.attr("value");
+                switchiframe($("#projects-page-iframe"), website);
+            }
+        }
+    }
 
-    function switchFrame(){
+
+    function switchSection(){
         var iframe = $("#projects-page-iframe");
         $(".project-button").on("click", function() {
             $(".project-button").removeClass("active");
             var selectedProject = $(this);
-            var website = selectedProject.attr("value");
+            var selectedProjectValue = selectedProject.attr("value");
+            var website = "project/" + selectedProjectValue;
             selectedProject.addClass("active");
 
-            iframe.attr("src", website);
-            iframe.hide();
-            iframe.fadeIn("slow");
+            switchiframe($("#projects-page-iframe"), website);
         });
 
         //console.log(iframe.contents().height() + 'is the height');
         //iframe.attr("src", "http://www.cnn.com");
     }
 
-
+    function switchiframe(iframe, website) {
+            iframe.attr("src", website);
+            iframe.hide();
+            iframe.fadeIn("slow");
+    }
 
     /*
     function switchSection(){
