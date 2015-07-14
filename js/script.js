@@ -28,9 +28,6 @@ $( document ).ready(function() {
 
             switchiframe($("#projects-page-iframe"), website);
         });
-
-        //console.log(iframe.contents().height() + 'is the height');
-        //iframe.attr("src", "http://www.cnn.com");
     }
 
     function switchiframe(iframe, website) {
