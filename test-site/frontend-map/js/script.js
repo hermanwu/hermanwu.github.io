@@ -1,14 +1,12 @@
 //YelpOAuth class
-var YelpOAuth = function(){
-  this.auth = {
-              consumerKey: "nsJaztWB593lsptA2C61gw",
-              consumerSecret: "MDea2Xt-0joFt22F8DYqCo2pgcY",
-              accessToken: "dCFwVSf6hSapbCrAf7Uyd9qsSsGWLvuc",
-              accessTokenSecret: "Z5KK2Wq_89AUoKMr6Uc6kxDzDbc",
-              serviceProvider: {
-                  signatureMethod: "HMAC-SHA1"
-                }
-              };
+var YelpOAuth = function() {
+    this.auth = {
+            consumerKey: "nsJaztWB593lsptA2C61gw",
+            consumerSecret: "MDea2Xt-0joFt22F8DYqCo2pgcY",
+            accessToken: "dCFwVSf6hSapbCrAf7Uyd9qsSsGWLvuc",
+            accessTokenSecret: "Z5KK2Wq_89AUoKMr6Uc6kxDzDbc",
+            serviceProvider: {signatureMethod: "HMAC-SHA1"}
+        };
   this.accesor = {
               consumerSecret: this.auth.consumerSecret,
               tokenSecret: this.auth.accessTokenSecret
@@ -27,8 +25,8 @@ var YelpOAuth = function(){
 
 
 
-YelpOAuth.prototype.getYelpBusinessInfo = function(businessId) {
-    var businessUrl = 'http://api.yelp.com/v2/business/' + businessId;
+YelpOAuth.prototype.getYelpBusinessInfo = function(location, callback) {
+    var businessUrl = 'http://api.yelp.com/v2/business/' + location.yelpId;
     var message = {
                     'action': businessUrl,
                     'method': 'GET',
@@ -46,34 +44,34 @@ YelpOAuth.prototype.getYelpBusinessInfo = function(businessId) {
     'dataType': 'jsonp',
     //'jsonpCallback': 'cb',
     'success': function(data, textStats, XMLHttpRequest) {
-      console.log(data.name);
-      //console.log(textStats);
-    //console.log(data);
-    //$("body").append(data);
+
+        var position = {
+            lat: data.location.coordinate.latitude,
+            lng: data.location.coordinate.longitude
+        }
+
+        location.marker.setPosition(position);
+
+        var yelpName = '<h3>' + data.name + '<h3>';
+        var yelpStar = '<img src="' + data.rating_img_url + '" alt="yelp star rating">';
+
+        var contentHTML = yelpName + yelpStar;
+
+        //location.marker.setPosition(data)
+        location.infowindow.setContent(contentHTML);
+        //console.log(textStats);
+        //console.log(data);
+        //$("body").append(data);
+
+
+        var LatLngPoint = new google.maps.LatLng(position.lat, position.lng);
+        callback(LatLngPoint);
     },
     'error': function(XMLHttpRequest, textStats, errorThrown){
       console.log(errorThrown);
     }
   });
-}
-
-
-var businessId = 'cava-mezze-grill-mclean';
-var yelpOAuth = new YelpOAuth();
-yelpOAuth.getYelpBusinessInfo(businessId);
-
-var businessId = 'maple-ave-restaurant-vienna'
-yelpOAuth.getYelpBusinessInfo(businessId);
-
-var businessId = 'nielsens-frozen-custard-vienna'
-yelpOAuth.getYelpBusinessInfo(businessId);
-
-var businessId = 'asia-taste-rockville-3'
-yelpOAuth.getYelpBusinessInfo(businessId);
-
-var businessId = 'nielsens-frozen-custard-vienna'
-yelpOAuth.getYelpBusinessInfo(businessId);
-
+};
 
 
 
@@ -86,44 +84,38 @@ google.maps.event.addDomListener(window, 'load', initialize);
 // location input
 var locationData = [
         {
-            title: "Home",
-            position: {lat: 38.9276490, lng: -77.2380320},
-            matchingIndex: 0,
-            yelpId: "cava-mezze-grill-mclean"
-        },
-        {
             title: "Maple Ave Restaurant",
-            position: {lat: 38.900498, lng: -77.266858},
             matchingIndex: 0,
-            yelpId: "cava-mezze-grill-mclean"
+            yelpId: 'maple-ave-restaurant-vienna'
         },
         {
             title: "Cava Mezze Grill",
-            position: {lat: 38.933868, lng: -77.17726},
             matchingIndex: 0,
-            yelpId: "cava-mezze-grill-mclean"
+            yelpId: 'cava-mezze-grill-mclean'
         },
         {
             title: "Nielsens Frozen Custard",
-            position: {lat: 38.900899, lng: -77.267318},
             matchingIndex: 0,
-            yelpId: "cava-mezze-grill-mclean"
+            yelpId: 'nielsens-frozen-custard-vienna'
         },
         {
             title: "Asia Taste",
-            position: {lat: 39.105290, lng: -77.157558},
             matchingIndex: 0,
-            yelpId: "cava-mezze-grill-mclean"
+            yelpId: 'asia-taste-rockville-3'
         }
 ];
 
+
+var yelpOAuth = new YelpOAuth();
+
 var Location = function(data){
     this.title = data.title;
-    this.position = data.position;
     this.matchingIndex = data.matchingIndex;
     this.visibility = true;
     //var yelpOAuth = new YelpOAuth();
-    //yelpOAuth.getYelpBusinessInfo(data.yelpId);
+
+    this.yelpId = data.yelpId;
+
     //yelpOAuth.getYelpBusinessInfo(data.yelpId);
 }
 
@@ -184,94 +176,60 @@ ko.applyBindings(new ViewModel());
 function initialize() {
 
     var mapOptions = {
-          center: locationArray[0].position,
-          zoom: 13
+        center: { lat: 38.9047, lng: -77.0164},
+        zoom: 20,
+        disableDefaultUI: true,
+        zoomControl: true,
+        zoomControlOptions: {
+            style: google.maps.ZoomControlStyle.SMALL,
+            position: google.maps.ControlPosition.RIGHT_TOP
+        },
+        mapTypeControl: true,
+        scaleControl: true
         };
 
-    map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-
-    var latlngbounds = new google.maps.LatLngBounds();
     var numOfLocation = locationArray.length;
 
+    var bounds = new google.maps.LatLngBounds();
 
-    for(var i = 0; i < numOfLocation; i++){
+        for(var i = 0; i < numOfLocation; i++){
+            createMarker(locationArray[i], bounds);
 
-        /*
-        var marker = new google.maps.Marker({
-            map: map,
-            position: locationArray[i].position,
-            clickable: true
-        });
-        */
-        createMarker(locationArray[i]);
+            /*
+            var LatLngPoint = new google.maps.LatLng(locationArray[i].position.lat,
+                locationArray[i].position.lng);
+            latlngbounds.extend(LatLngPoint);
+            */
+        }
 
-        var LatLngPoint = new google.maps.LatLng(locationArray[i].position.lat,
-            locationArray[i].position.lng);
-        latlngbounds.extend(LatLngPoint);
-    }
-    map.fitBounds(latlngbounds);
 }
 
-function createMarker(location) {
+function createMarker(location, bounds) {
     var contentString = location.name;
 
     var marker = new google.maps.Marker({
-        position: location.position,
-        map: map
+            map: map
         //zIndex: Math.round(latlng.lat()*-100000)<<5
         });
 
 
-   var infowindow = new google.maps.InfoWindow(
-    {
-      content: contentString,
-      position: location.position
-    });
+   var infowindow = new google.maps.InfoWindow();
 
     google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map,marker);
+        infowindow.open(map, marker);
     });
 
     location.marker = marker;
     location.infowindow = infowindow;
-}
 
-/*
-function createMarker(latlng, html) {
-    var contentString = html;
-    var marker = new google.maps.Marker({
-        position: latlng,
-        map: map,
-        //zIndex: Math.round(latlng.lat()*-100000)<<5
-        });
-
-    google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(contentString);
-        infowindow.open(map,marker);
-        });
-}
-*/
-
-/*
-function filter(element){
-    var value = $(element).val().toLowerCase();
-    $("#places > li").each(function(){
-        var locationIndex = $("li").index($(this));
-        var marker = locationArray[locationIndex].marker;
-        if ($(this).text().toLowerCase().search(value) > -1) {
-            $(this).show();
-            marker.setVisible(true);
-
-        }
-        else{
-            $(this).hide();
-            marker.setVisible(false);
-        }
+    yelpOAuth.getYelpBusinessInfo(location, function(data){
+        bounds.extend(data);
+        map.fitBounds(bounds);
     });
+
 }
-*/
 
 
 
