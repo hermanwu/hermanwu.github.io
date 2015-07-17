@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Review Map</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="../lib/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .container{
+      font-family: 'Open Sans', sans-serif;
+      color: dimgray;
+    }
+    .paragraph {
+      max-width: 700px;
+      margin: 10px auto;
+      text-align: justify;
+      padding: 5px;
+    }
+    .code-snippet {
+      max-width: 700px;
+      margin: 10px auto;
+      padding: 5px;
+    }
+    img {
+      width: 400px;
+    }
+    </style>
+    <script>
+      var header = '<header class="row"><h1 class="text-center">Simple Arcade Game</h1></header>';
+      var skills = '';
+
+
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-64575910-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </head>
+
+
+  <body class="container">
+    <header class="row">
+      <h1 class="text-center">Personal Yelp Review Map</h1>
+    </header>
+
+    <div class="row skills-section">
+      <h3 >Skills</h3>
+      <div class="col-lg-3 col-lg-4 col-xs-6 text-center"><span>User Interface Design</span></div>
+      <div class="col-lg-3 col-lg-4 col-xs-6 text-center"><span>MVVM Model - Knockout framework</span></div>
+      <div class="col-lg-3 col-lg-4 col-xs-6 text-center"><span>AJAX</span></div>
+      <div class="col-lg-3 col-lg-4 col-xs-6 text-center"><span>Yelp API / RSS</span></div>
+      <div class="col-lg-3 col-lg-4 col-xs-6 text-center"><span>Google Map API</span></div>
+    </div>
+
+    <div class="row summary-section">
+      <h3>Summary</h3>
+
+      <p>I deeveloped this single page application featuring a map of restaurants that I have reviewed on Yelp recently. it pulls live valuable data sets directly from Yelp using AJAX call, and present in my own way on this map using Google Map API.
+      </p>
+
+      <p> I also implemented Knockout javascript library (MVVM design pattern) to assist in developing a manageable codebase.
+      </p>
+    </div>
+
+
+    <div class="row highlights-section">
+      <h3>Highlights</h3>
+      <img src="img/stats-portal-overview.png" class="img-responsive center-block img-rounded">
+      <p class="paragraph">Overview of the team performance page</p>
+
+      <img src="img/stats-portal-agent-detailed-view.png" class="img-responsive center-block img-rounded">
+      <p class="paragraph">View detailed teammates performance</p>
+
+      <img src="img/stats-portal-logo-page.png" class="img-responsive center-block img-rounded">
+      <p class="paragraph">Integrated with Zendesk and AirWatch restful API. All data were retrieved and parsed using PHP every 15 minutes and stored in the mysql database</p>
+
+      <img src="img/stats-portal-ticket-link.png" class="img-responsive center-block img-rounded">
+      <img src="img/stats-portal-team-selection.png" class="img-responsive center-block img-rounded">
+      <img src="img/stats-portal-add-user.png" class="img-responsive center-block img-rounded">
+      <p class="paragraph">Enable users to easily manage tickets, teams, team members</p>
+
+
+      <img src="img/stats-portal-about-page.png" class="img-responsive center-block img-rounded">
+      <p class="paragraph">Documentation page (I also designed logo for my application) and Clients Temperature page </p>
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- This is used to post code -->
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  </body>
+</html>
