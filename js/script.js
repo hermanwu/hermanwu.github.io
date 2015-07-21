@@ -20,13 +20,9 @@ $( document ).ready(function() {
     function switchSection(){
         var iframe = $("#projects-page-iframe");
         $(".project-button").on("click", function() {
-            $(".project-button").removeClass("active");
             var selectedProject = $(this);
             var selectedProjectValue = selectedProject.attr("value");
-            var website = "project/" + selectedProjectValue;
-            selectedProject.addClass("active");
-
-            switchiframe($("#projects-page-iframe"), website);
+            location.href = "projects.html?" + selectedProjectValue.substring(0, selectedProjectValue.length-5);
         });
     }
 
