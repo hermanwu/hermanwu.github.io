@@ -10,12 +10,21 @@
     <style>
 
       /* featured work section */
+      h4 {
+        color: gray;
+      }
+      .home-page-section {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
       .project-image {
           width: 100%; /* or any custom size */
-          height: 100%; 
+          height: 100%;
           object-fit: fill;
-          border-radius: 10px;
-          padding: 3px;
+          border-radius: 20px;
+          padding: 10px;
+          border-width: 3px;
       }
 
       .project-title {
@@ -27,14 +36,13 @@
 
       }
       .carousel-inner{
-          width: 100%; 
-          height: 500px;
+          width: 100%;
+          height: 400px;
       }
       .carousel-inner img {
-          width: 100%; /* or any custom size */ 
-          max-height: 500px;
+          width: 100%; /* or any custom size */
+          max-height: 400px;
           object-fit: cover;
-
       }
       .carousel-caption {
       }
@@ -65,7 +73,7 @@
       <div class="col-lg-6 col-md-6 col-xs-12 nav-container">
         <nav>
           <h3 class="text-center">
-            <a href="index.html" class="nav-selection" name="featured">Featured</a>
+            <a href="index.html" class="nav-selection" name="featured">Home</a>
             <a href="projects.html" class="nav-selection" name="projects">Projects</a>
             <a href="about.html" class="nav-selection" name="about">About</a>
           </h3>
@@ -75,13 +83,8 @@
 
     <div class="container-section bottom-buffer">
       <!-- home page section -->
-      <div class="home-page-section section">
-        <div class="row">
-            <div class="col-lg-12">
-              <h2>Featured</h2>
-            </div>
-        </div>
-        <div class="row">
+      <div class="home-page-section section ">
+        <div class="row top-buffer">
           <div class="featured-work col-lg-12 col-md-12 col-xs-12">
             <div id="home-page-carousel" class="img-rounded carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -115,7 +118,7 @@
             </div>
           </div>
       </div>
-         <div class="row">
+         <div class="row top-buffer">
           <div class="featured-work col-lg-4 col-md-6 col-xs-12">
             <a href="projects.html?aircraft-schedule-optimization">
               <img class = "project-image" src="project/img/aircraft-schedule-optimization.png" alt="Home screen of the stats portal">
