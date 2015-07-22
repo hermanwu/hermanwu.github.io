@@ -70,7 +70,7 @@ Location.prototype.createMarker = function() {
     // Instaniate marker with yelp icon
     var marker = new google.maps.Marker({
         map: map,
-        icon: "yelp.png"
+        icon: "img/yelp.png"
     });
     self.marker = marker;
     // Instaniate info bubble with custom style
@@ -205,6 +205,21 @@ var ViewModel = function(){
 };
 
 //global google map variable
+
+
+setInterval(function() {
+$.ajax({
+    url: "http://hermanwu.github.io/test-site/frontend-map/",
+    error: function(){
+        console.log("Internet seems to be disconnected");
+        alert("Internet seems to be disconnected");
+    },
+    success: function(){
+    },
+});
+}, 8000);
+
+
 var map;
 var mapBounds;
 var locationArray = [];
