@@ -205,24 +205,6 @@ var ViewModel = function(){
 };
 
 //global google map variable
-
-
-setInterval(function() {
-  $.ajax({
-    url: "http://hermanwu.github.io/test-site/frontend-map/img/yelp.png",
-  })
-  .done(function( data) {
-    alert('connected');
-  })
-  .fail(function( data ) {
-    alert('Connection lost?');
-    // remember do to something smart which shows the error just once
-    // instead of every five seconds. Increasing the interval every
-    // time it fails seems a good start.
-  });
-}, 5*1000);
-
-
 var map;
 var mapBounds;
 var locationArray = [];
