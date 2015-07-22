@@ -212,7 +212,7 @@ setInterval(function() {
     url: "http://hermanwu.github.io/test-site/frontend-map/img/yelp.png",
   })
   .done(function( data) {
-    //alert('connected');
+    alert('connected');
   })
   .fail(function( data ) {
     alert('Connection lost?');
