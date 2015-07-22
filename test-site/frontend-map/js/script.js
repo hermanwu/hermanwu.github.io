@@ -1,3 +1,4 @@
+'use strict';
 // Yelp OAuth class with API credentials
 var YelpCommunication = function() {
     this.auth = {
@@ -78,7 +79,7 @@ Location.prototype.createMarker = function() {
         backgroundColor: 'rgb(196,196,196)',
         borderRadius: 5,
         borderWidth: 2,
-        borderColor: '#00ddff',
+        borderColor: '#0DF',
         backgroundClassName: 'transparent',
         maxWidth: 300,
         maxHeight: 200
@@ -86,6 +87,10 @@ Location.prototype.createMarker = function() {
     self.infoBubble = infoBubble;
     // Add click listener to associate marker with the info bubble
     google.maps.event.addListener(marker, 'click', function() {
+        // Close all open info bubble first
+        locationArray.forEach(function(location){
+            location.infoBubble.close();
+        });
         // Open the info bubble once the marker icon is clicked
         infoBubble.open(map, marker);
     });
@@ -121,7 +126,7 @@ Location.prototype.getYelpBusinessInfo = function(callback) {
         "action": businessUrl,
         "method": "GET",
         "parameters": yelpCommunication.parameters
-    }
+    };
     // Set up API call's credentials
     OAuth.setTimestampAndNonce(message);
     OAuth.SignatureMethod.sign(message, yelpCommunication.accesor);
@@ -154,7 +159,7 @@ var ViewModel = function(){
     var self = this;
     // Instaniate obersable for search bar
     self.searchBarText = ko.observable("");
-    // Map location arry to oberservable array and obersvables accordingly
+    // Map location array to oberservable array and obersvables accordingly
     self.places = ko.mapping.fromJS(locationArray);
     // Call "match" function whenever user starts to type in the location bar
     self.searchBarText.subscribe(function(newValue) {
@@ -182,7 +187,7 @@ var ViewModel = function(){
                 locationArray[index].marker.setVisible(true);
             }
         });
-    }
+    };
 
     // Method to trigger when a list item is clicked
     self.itemClicked = function(clickedItemIndex) {
@@ -196,8 +201,8 @@ var ViewModel = function(){
         clickedLocation.infoBubble.open(map, clickedLocation.marker);
         // Center the info bubble on the map
         map.setCenter(clickedLocation.marker.getPosition());
-    }
-}
+    };
+};
 
 //global google map variable
 var map;
@@ -206,7 +211,7 @@ var locationArray = [];
 // Initialize map
 google.maps.event.addDomListener(window, 'load', initialize);
 // Instantiate view model
-viewModel = new ViewModel();
+var viewModel = new ViewModel();
 ko.applyBindings(viewModel);
 // Retrieve my latest yelp review through Yelp RSS call
 var yelpCommunication = new YelpCommunication();
@@ -229,7 +234,8 @@ function initialize() {
             {
                 "stylers": [
                     { "invert_lightness": true },
-                    { "hue": "#00ddff" },
+                    // If I change it to #0DF, the map displays a different color (I believe Google is using a different algorithm to calculate the color).
+                    { "hue": "#00DDFF" },
                     { "visibility": "simplified" }
                 ]
             }

@@ -18,12 +18,19 @@
       padding: 5px;
     }
     .code-snippet {
-      max-width: 700px;
       margin: 10px auto;
       padding: 5px;
     }
-    img {
+    .large-img {
+      width: 600px;
+    }
+
+    .medium-img {
       width: 400px;
+    }
+
+    .small-img {
+      width: 200px;
     }
     </style>
     <script>
@@ -45,7 +52,7 @@
 
   <body class="container">
     <header class="row">
-      <h1 class="text-center">My Yelp Review Map</h1>
+      <h1 class="text-center">Yelp Review Map</h1>
     </header>
 
     <div class="row skills-section">
@@ -57,30 +64,118 @@
       <div class="col-lg-3 col-lg-4 col-xs-6 text-center"><span>Google Map API</span></div>
     </div>
 
+    <hr>
+
     <div class="row summary-section">
       <h3>Summary</h3>
 
-      <p>I deeveloped this single page application featuring a map of places that I have reviewed on Yelp recently. it pulls live valuable data sets directly from Yelp using AJAX call, and present in my own way on this map using Google Map API.
-      </p>
+      <p>This single page application features a map of places that I have reviewed on Yelp recently. With this app, user can easily my favorite destination in the cities and read my reviews of them.
 
-      <p> I also implemented Knockout javascript library (MVVM design pattern) to assist in developing a manageable codebase.
+      <p>Reviews and location data are retrieved directly from Yelp using AJAX request. I also implemented Knockout javascript library (MVVM design pattern) to assist in developing a manageable codebase.
       </p>
     </div>
 
+    <hr>
 
-    <div class="highlights-section">
+    <div class="row highlights-section">
       <h3>Highlights</h3>
-      <img src="img/yelp-review-map-mobile-overview.png" class="img-responsive center-block img-rounded">
-      <p class="paragraph">Once the page is loaded, my most recent yelp reviews will be displayed in a list and marked on the map</p>
+      <p class="paragraph">Once the page is loaded, my recent yelp reviews will be displayed in a list and marked on the map.</p>
+      <img class="medium-img center-block" src="img/yelp-review-map-mobile-overview.png" class="img-responsive center-block img-rounded">
+
       <hr>
-      <img src="img/yelp-review-map-search.png" class="img-responsive center-block img-rounded">
       <p class="paragraph">Search bar can be used to filter the locations by their names</p>
+      <img class="large-img center-block" src="img/yelp-review-map-search.png" class="img-responsive center-block img-rounded">
+      
       <hr>
-      <img src="img/yelp-review-map-overview.png" class="img-responsive center-block img-rounded">
       <p class="paragraph">Both markers and list items are interactive.</p>
-
-
+      <img class="large-img center-block" src="img/yelp-review-map-overview.png" class="img-responsive center-block img-rounded">
     </div>
+
+    <hr>
+
+    <div class="row code">
+      <h3>Code Snippet</h3>
+      <p class="paragraph">AJAX call error handling</p>
+      <pre class="prettyprint">
+// Method to get my recent yelp reviews through yelp RSS call
+YelpCommunication.prototype.getRRS = function(){
+    // Method to handle yelp API request error
+    var yelpRequestTimeout = setTimeout(function() {
+        $("#places-header").text("failed to retrieve review list");
+        $("#search-container").text("failed to retrieve review list");
+    }, 8000);
+    // Ajax call to get yelp review list
+    $.ajax({
+        url: document.location.protocol + "//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=" + encodeURIComponent(this.rssUrl),
+        dataType: 'json',
+        success: function(data) {
+            // Clear the time out method if yelp request finsihes successfully
+            clearTimeout(yelpRequestTimeout);
+            // Handle the situation that RSS call returns nothing
+            if (data == null || data.responseData == null) {
+                $("#places-header").text("failed to retrieve review list");
+            } else {
+                data.responseData.feed.entries.forEach(function(yelpRSSentry){
+                    // create location item based on RSS information
+                    var yelpRSSLocation = new Location(yelpRSSentry);
+                    locationArray.push(yelpRSSLocation);
+                    // update observable array
+                    ko.mapping.fromJS(locationArray, viewModel.places);
+                });
+            }
+        }
+    });
+};
+      </pre>
+
+
+      <hr>
+      <p class="paragraph">Knockout JS view model</p>
+      <pre class="prettyprint">
+// View model of Knockout.js
+var ViewModel = function(){
+    // Assign model itself to "self" avaiable to avoid confusion
+    var self = this;
+    // Instaniate obersable for search bar
+    self.searchBarText = ko.observable("");
+    // Map location array to oberservable array and obersvables accordingly
+    self.places = ko.mapping.fromJS(locationArray);
+    // Call "match" function whenever user starts to type in the location bar
+    self.searchBarText.subscribe(function(newValue) {
+        self.match();
+    });
+    // Method to check and filter reviews
+    self.match = function() {
+        // Change the search bar text to lower case
+        var text = self.searchBarText().toLowerCase();
+        // Check whether each review matches with the text in search bar
+        ko.utils.arrayForEach(self.places(), function(place, index) {
+            // If text does not match
+            if (place.title().toLowerCase().search(text) < 0) {
+                // Hide the review from the list
+                place.visibility(false);
+                // Hide the marker and close the info bubble on the map
+                locationArray[index].marker.setVisible(false);
+                locationArray[index].infoBubble.close();
+            }
+            // If text matches
+            else {
+                // Show the review on the list
+                place.visibility(true);
+                // Show the marker on the map
+                locationArray[index].marker.setVisible(true);
+            }
+        });
+    };
+};
+      </pre>
+    </div>
+
+
+
+
+
+
     <hr>
     <div class="text-center source-code">
         <a target="_blank" href="https://github.com/hermanwu/frontend-map">
