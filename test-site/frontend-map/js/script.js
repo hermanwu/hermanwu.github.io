@@ -27,8 +27,8 @@ YelpCommunication.prototype.getRRS = function(){
     // Method to handle yelp API request error
     var yelpRequestTimeout = setTimeout(function() {
         $("#places-header").text("failed to retrieve review list");
-        $("#search-container").text("failed to retrieve review list");
-    }, 8000);
+        $("#search-container").text("please check your internet connection");
+    }, 5000);
     // Ajax call to get yelp review list
     $.ajax({
         url: document.location.protocol + "//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=" + encodeURIComponent(this.rssUrl),
@@ -70,7 +70,7 @@ Location.prototype.createMarker = function() {
     // Instaniate marker with yelp icon
     var marker = new google.maps.Marker({
         map: map,
-        icon: "img/yelp.png"
+        icon: "yelp.png"
     });
     self.marker = marker;
     // Instaniate info bubble with custom style
@@ -205,17 +205,39 @@ var ViewModel = function(){
 };
 
 //global google map variable
+
+
+setInterval(function() {
+  $.ajax({
+    url: "http://hermanwu.github.io/test-site/frontend-map/img/yelp.png",
+  })
+  .done(function( data) {
+    //alert('connected');
+  })
+  .fail(function( data ) {
+    alert('Connection lost?');
+    // remember do to something smart which shows the error just once
+    // instead of every five seconds. Increasing the interval every
+    // time it fails seems a good start.
+  });
+}, 5*1000);
+
+
 var map;
 var mapBounds;
 var locationArray = [];
+// Retrieve my latest yelp review through Yelp RSS call
+var yelpCommunication = new YelpCommunication();
+yelpCommunication.getRRS();
+
 // Initialize map
 google.maps.event.addDomListener(window, 'load', initialize);
 // Instantiate view model
 var viewModel = new ViewModel();
 ko.applyBindings(viewModel);
-// Retrieve my latest yelp review through Yelp RSS call
-var yelpCommunication = new YelpCommunication();
-yelpCommunication.getRRS();
+
+
+
 
 
 // google map's initilization method
@@ -248,5 +270,6 @@ function initialize() {
         location.createMarker();
     });
 }
+
 
 
