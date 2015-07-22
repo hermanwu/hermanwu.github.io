@@ -1,6 +1,4 @@
-
 /* global style settings */
-
 /* icon font **************************/
 @import url(http://weloveiconfonts.com/api/?family=zocial);
 
@@ -22,6 +20,7 @@
 .about-section {
     font-family: 'Source Sans Pro', sans-serif;
 }
+
 .footer {
     position:fixed;
     bottom:0;
@@ -60,12 +59,13 @@ img {
 }
 
 .nav-bar{
-    margin: 20px 0px 20px 0px;
+    margin: 20px 0 20px 0;
 }
 
 .top-buffer {
     margin-top:50px;
 }
+
 .bottom-buffer {
     margin-bottom:50px;
 }
@@ -82,21 +82,18 @@ img {
 }
 
 .active {
-    color: #e68c80;
+    color: #E88;
 }
 
 .nav-selection:hover {
-    color: #e68c80;
+    color: #E88;
     text-decoration: none;
 }
 
-
-/* all section setting */
-
-
-
-
-
+.hover-red:hover {
+    color: #E88;
+    text-decoration: none;
+}
 
 
 /* media query */

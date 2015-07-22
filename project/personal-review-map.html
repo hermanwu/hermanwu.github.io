@@ -32,6 +32,12 @@
     .small-img {
       width: 200px;
     }
+
+    .hover-red:hover {
+      color: #E88;
+      text-decoration: none;
+    }
+
     </style>
     <script>
       var header = '<header class="row"><h1 class="text-center">Simple Arcade Game</h1></header>';
@@ -85,10 +91,18 @@
       <hr>
       <p class="paragraph">Search bar can be used to filter the locations by their names</p>
       <img class="large-img center-block" src="img/yelp-review-map-search.png" class="img-responsive center-block img-rounded">
-      
+
       <hr>
       <p class="paragraph">Both markers and list items are interactive.</p>
       <img class="large-img center-block" src="img/yelp-review-map-overview.png" class="img-responsive center-block img-rounded">
+    </div>
+
+    <hr>
+
+    <div>
+        <a class="text-center hover-red" target="_blank" href="http://hermanwu.github.io/test-site/frontend-map">
+          <h3>Demo</h3>
+        </a>
     </div>
 
     <hr>
@@ -172,16 +186,14 @@ var ViewModel = function(){
     </div>
 
 
-
-
-
-
     <hr>
-    <div class="text-center source-code">
-        <a target="_blank" href="https://github.com/hermanwu/frontend-map">
+
+    <div class="text-center">
+        <a class= "hover-red" target="_blank" href="https://github.com/hermanwu/frontend-map">
            <h2><small>source code on </small>git<h2/>
         </a>
     </div>
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

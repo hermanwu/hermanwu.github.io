@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 // Yelp OAuth class with API credentials
 var YelpCommunication = function() {
     this.auth = {
@@ -26,8 +26,8 @@ var YelpCommunication = function() {
 YelpCommunication.prototype.getRRS = function(){
     // Method to handle yelp API request error
     var yelpRequestTimeout = setTimeout(function() {
-        $("#places-header").text("failed to retrieve review list");
-        $("#search-container").text("please check your internet connection");
+        $(".places-header").text("failed to retrieve review list");
+        $(".internet-warning").css("display", "block");
     }, 5000);
     // Ajax call to get yelp review list
     $.ajax({
@@ -37,8 +37,8 @@ YelpCommunication.prototype.getRRS = function(){
             // Clear the time out method if yelp request finsihes successfully
             clearTimeout(yelpRequestTimeout);
             // Handle the situation that RSS call returns nothing
-            if (data == null || data.responseData == null) {
-                $("#places-header").text("failed to retrieve review list");
+            if (data === null || data.responseData === null) {
+                $(".places-header").text("failed to retrieve review list");
             } else {
                 data.responseData.feed.entries.forEach(function(yelpRSSentry){
                     // create location item based on RSS information
@@ -99,7 +99,7 @@ Location.prototype.createMarker = function() {
         var position = {
             lat: yelpAPIResponse.location.coordinate.latitude,
             lng: yelpAPIResponse.location.coordinate.longitude
-        }
+        };
         // Add marker to the map
         self.marker.setPosition(position);
         // Build info bubble's content
@@ -135,7 +135,7 @@ Location.prototype.getYelpBusinessInfo = function(callback) {
 
     // Method to handle yelp API request error
     var yelpRequestTimeout = setTimeout(function() {
-        $("#places-header").text("failed to get location information");
+        $(".places-header").text("failed to get location information");
     }, 8000);
 
     // Retrieve yelp's location informaiton
@@ -144,14 +144,13 @@ Location.prototype.getYelpBusinessInfo = function(callback) {
         'data': parameterMap,
         'cache': true,
         'dataType': 'jsonp',
-        success: function(data, textStats, XMLHttpRequest) {
+        success: function(data) {
             // Clear the time out method if yelp request finsihes successfully
             clearTimeout(yelpRequestTimeout);
             callback(data);
         }
     });
 };
-
 
 // View model of Knockout.js
 var ViewModel = function(){
@@ -162,7 +161,7 @@ var ViewModel = function(){
     // Map location array to oberservable array and obersvables accordingly
     self.places = ko.mapping.fromJS(locationArray);
     // Call "match" function whenever user starts to type in the location bar
-    self.searchBarText.subscribe(function(newValue) {
+    self.searchBarText.subscribe(function() {
         self.match();
     });
     // Method to check and filter reviews
@@ -204,22 +203,10 @@ var ViewModel = function(){
     };
 };
 
+//Check internet connectivity
+checkInternetConnection();
+
 //global google map variable
-
-
-setInterval(function() {
-$.ajax({
-    url: "http://hermanwu.github.io/test-site/frontend-map/",
-    error: function(){
-        console.log("Internet seems to be disconnected");
-        alert("Internet seems to be disconnected");
-    },
-    success: function(){
-    },
-});
-}, 8000);
-
-
 var map;
 var mapBounds;
 var locationArray = [];
@@ -232,10 +219,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 // Instantiate view model
 var viewModel = new ViewModel();
 ko.applyBindings(viewModel);
-
-
-
-
 
 // google map's initilization method
 function initialize() {
@@ -268,5 +251,20 @@ function initialize() {
     });
 }
 
-
-
+//Check whether internet is connected
+function checkInternetConnection() {
+    setInterval(function() {
+        $.ajax({
+            // This url can be replaced with the actual server url
+            url: "http://hermanwu.github.io/test-site/frontend-map/",
+            cache: false,
+            error: function(){
+                console.log("Internet seems to be disconnected");
+                $(".internet-warning").css("display", "block");
+            },
+            success: function() {
+                $(".internet-warning").css("display", "none");
+            },
+        });
+    }, 5000);
+}
