@@ -37,61 +37,64 @@
     </script>
   </head>
 
-  <body class="container">
-    <header class="row nav-bar">
-      <div class="col-lg-3 col-md-3 col-xs-12">
-        <a href="index.html" class="logo-anchor">
-          <img class="logo-image" src="img/logo.png" alt="Website logo">
-        </a>
-        <div class= "title">
-          <h4>Design & Build</h4>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 col-xs-12 nav-container">
-        <nav>
-          <h3 class="text-center">
-            <a href="index.html" class="nav-selection" name="featured">Home</a>
-            <a href="projects.html" class="nav-selection" name="projects">Projects</a>
-            <a href="about.html" class="nav-selection" name="about">About</a>
-          </h3>
-        </nav>
-      </div>
-    </header>
-
-    <div class="container-section bottom-buffer">
-      <!-- CREATING section -->
-      <div class="projects-section section">
-          <div class="row">
-            <nav class="col-lg-3 col-md-3 col-xs-12">
-              <ul>
-                <li class="project-button personal-review-map" value="personal-review-map.html"><h4>yelp review map</h4></li>
-                <li class="project-button ticket-stats-portal" value="ticket-stats-portal.html"><h4>ticket stats portal</h4></li>
-                <li class="project-button web-performance-optimization" value="web-performance-optimization.html"><h4>web optimization</h4></li>
-                <li class="project-button simple-arcade-game" value="simple-arcade-game.html"><h4>simple acrade game</h4></li>
-                <li class="project-button test-driven-development" value="test-driven-development.html"><h4>test-driven development</h4></li>
-                <li class="project-button aircraft-schedule-optimization" value="aircraft-schedule-optimization.html"><h4>aircraft schedule optimization</h4></li>
-
-              </ul>
-            </nav>
-            <div class="col-lg-9 col-md-9 col-xs-12">
-              <iframe id ="projects-page-iframe" src="project/personal-review-map.html" frameBorder="0" scrolling="no" onload='resizeIframe(this);'>
-              </iframe>
-            </div>
+  <body>
+    <div class="container">
+      <header class="row nav-bar">
+        <div class="col-lg-3 col-md-3 col-xs-12">
+          <a href="index.html" class="logo-anchor">
+            <img class="logo-image" src="img/logo.png" alt="Website logo">
+          </a>
+          <div class= "title">
+            <h4>Design & Build</h4>
           </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-xs-12 nav-container">
+          <nav>
+            <h3 class="text-center">
+              <a href="index.html" class="nav-selection" name="featured">Home</a>
+              <a href="projects.html" class="nav-selection" name="projects">Projects</a>
+              <a href="about.html" class="nav-selection" name="about">About</a>
+            </h3>
+          </nav>
+        </div>
+      </header>
+
+      <div class="container-section bottom-buffer">
+        <!-- CREATING section -->
+        <div class="projects-section section">
+            <div class="row">
+              <nav class="col-lg-3 col-md-3 col-xs-12">
+                <ul>
+                  <li class="project-button personal-review-map" value="personal-review-map.html"><h4>yelp review map</h4></li>
+                  <li class="project-button ticket-stats-portal" value="ticket-stats-portal.html"><h4>ticket stats portal</h4></li>
+                  <li class="project-button web-performance-optimization" value="web-performance-optimization.html"><h4>web optimization</h4></li>
+                  <li class="project-button simple-arcade-game" value="simple-arcade-game.html"><h4>simple acrade game</h4></li>
+                  <li class="project-button test-driven-development" value="test-driven-development.html"><h4>test-driven development</h4></li>
+                  <li class="project-button aircraft-schedule-optimization" value="aircraft-schedule-optimization.html"><h4>aircraft schedule optimization</h4></li>
+
+                </ul>
+              </nav>
+              <div class="col-lg-9 col-md-9 col-xs-12">
+                <iframe id ="projects-page-iframe" src="project/personal-review-map.html" frameBorder="0" scrolling="no" onload='resizeIframe(this);'>
+                </iframe>
+              </div>
+            </div>
+        </div>
+
       </div>
 
-    </div>
 
-    <!-- footer of the website -->
+
+    </div>
+          <!-- footer of the website -->
     <div class="footer gray-color">
-      <p>&copy; 2015 designed and created by Herman Wu</p>
+        <p> &copy; 2015 designed and created by Herman Wu</p>
     </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
-
   </body>
 </html>
