@@ -5,12 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Herman Portfolio</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="bower_components/fullpage.js/jquery.fullPage.css" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Josefin+Sans:400,700|Architects+Daughter' rel='stylesheet' type='text/css'>
     <link href="lib/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
       /* featured work section */
       h4 {
         color: gray;
+      }
+      #header, #footer{
+        height: 70px;
+        display:block;
+        width: 100%;
+        background: white;
+        text-align:center;
+        color: #f2f2f2;
+        padding: 20px 0 0 0;
       }
 
       .home-page-section {
@@ -20,8 +30,9 @@
 
       .project-image {
           width: 100%; /* or any custom size */
-          height: 250px;
-          object-fit: fill;
+          max-width: 800px;
+          height: 500px;
+          object-fit: contain;
           border-radius: 20px;
           padding: 10px;
           border-width: 3px;
@@ -51,9 +62,40 @@
           max-height: 400px;
           object-fit: cover;
       }
+        /* Defining each section background and styles
+      * --------------------------------------- */
+      #section0{
+        background: -webkit-gradient(linear, top left, bottom left, from(#FFFFFF), to(#d6d6d6));
+        background: -webkit-linear-gradient(#FFFFFF, #d6d6d6);
+        background: linear-gradient(#FFFFFF,#d6d6d6);
+      }
+
+      #section1{
+        background: -webkit-gradient(linear, top left, bottom left, from(#d6d6d6), to(#eeeeee));
+        background: -webkit-linear-gradient(#d6d6d6, #eeeeee);
+        background: linear-gradient(#d6d6d6,#eeeeee);
+      }
+      #section2{
+        background: -webkit-gradient(linear, top left, bottom left, from(#eeeeee), to(#a6a6a6));
+        background: -webkit-linear-gradient(#eeeeee, #a6a6a6);
+        background: linear-gradient(#eeeeee,#a6a6a6);
+      }
+
 
     </style>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script>
+      // fullpage.js script
+      $(document).ready(function() {
+        $('#fullpage').fullpage({
+          anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+          menu: '#menu',
+          scrollBar: true,
+          slidesNavigation: true
+        });
+      });
+
+      // Google Analytics Script
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -61,20 +103,16 @@
 
       ga('create', 'UA-64575910-2', 'auto');
       ga('send', 'pageview');
-
     </script>
   </head>
 
   <body>
-    <div class="container">
-      <header class="row nav-bar">
+    <div class="container navbar-fixed-top">
+      <header class="row nav-bar ">
         <div class="col-lg-3 col-md-3 col-xs-12">
           <a href="index.html" class="logo-anchor">
             <img class="logo-image" src="img/logo.png" alt="Website logo">
           </a>
-          <div class= "title">
-            <h4>Keep Creating</h4>
-          </div>
         </div>
         <div class="col-lg-6 col-md-6 col-xs-12 nav-container">
           <nav>
@@ -86,78 +124,84 @@
           </nav>
         </div>
       </header>
-
-      <div class="container-section bottom-buffer">
-        <!-- home page section -->
-        <div class="home-page-section section ">
-          <div class="row">
-            <div class="featured-work col-lg-12 col-md-12 col-xs-12">
-              <div id="home-page-carousel" class="img-rounded carousel slide center-block" data-ride="carousel">
-              <!-- Indicators -->
-                <ol class="carousel-indicators">
-                  <li data-target="#home-page-carousel" data-slide-to="0" class="active"></li>
-                  <li data-target="#home-page-carousel" data-slide-to="1"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                  <div class="item active">
-                    <img id="carousel-image" src="project/img/stats-portal-overview.png" alt="img 1">
-                    <div class="carousel-caption">
-                        <a class="btn btn-danger btn-large" href="projects.html?ticket-stats-portal">Learn more</a>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <img id="carousel-image" src="project/img/stats-portal-about-page.png" alt="img 2">
-                  </div>
-                </div>
-
-                <!-- Controls -->
-                <a class="left carousel-control img-rounded" href="#home-page-carousel" role="button" data-slide="prev">
-                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control img-rounded" href="#home-page-carousel" role="button" data-slide="next">
-                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
-            </div>
-        </div>
-           <div class="row">
-            <div class="featured-work col-lg-4 col-md-6 col-xs-12">
-              <a href="projects.html?personal-review-map">
-                <img class = "project-image" src="project/img/yelp-review-map-mobile-overview.png" alt="Memo of the seniro design project">
-              </a>
-
-            </div>
-            <div class="featured-work col-lg-4 col-md-6 col-xs-12">
-              <a href="projects.html?test-driven-development">
-                <img class = "project-image" src="project/img/jasmine.png" alt="Memo of the seniro design project">
-              </a>
-
-            </div>
-            <div class="featured-work col-lg-4 col-md-6 col-xs-12">
-              <a href="projects.html?simple-arcade-game">
-                <img class = "project-image" src="project/img/move.png" alt="arcade game image">
-              </a>
-            </div>
-          </div>
+    </div>
+    <!-- Section for Fullpage.js -->
+    <div id="fullpage">
+      <div class="section " id="section0">
+        <div class="text-center">
+          <h2>I love</h2>
+          <h3 class="red">Javascript and Java</h3>
+          <h2>I know</h2>
+          <h4>HTML/CSS, PHP, C#, Python, C, Assembly</h4>
+          <h2>I am learning</h2>
+          <h4>AugluarJS</h4>
+          <h4>Model Thinking<h4>
+          <h4>Data Visualization<h4>
+          <h4>Interactive Programming</h4>
+          <h4>Algorithm Design and Analysis</h4>
         </div>
       </div>
+      <!-- Project Section -->
+      <div class="section" id="section1">
 
+        <!-- Project 1 -->
+        <div class="slide" id="slide1">
 
+            <div class="text-center featured-work col-lg-12 col-md-12 col-xs-12">
+              <h3>Ticket Stats Portal</h3>
+              <img class = "project-image" src="project/img/stats-portal-overview.png" alt="ticket stats portal image">
+              <a class="text-center" href="projects.html?ticket-stats-portal">
+                view details
+              </a>
+            </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="slide" id="slide2">
+            <div class="text-center featured-work col-lg-12 col-md-12 col-xs-12">
+              <h3>Yelp Review Map</h3>
+              <img class = "project-image" src="project/img/yelp-review-map-mobile-overview.png" alt="Memo of the seniro design project">
+              <a href="projects.html?personal-review-map">
+                view details
+              </a>
+            </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="slide" id="slide3">
+            <div class="text-center featured-work col-lg-12 col-md-12 col-xs-12">
+              <h3>Test-Driven Development</h3>
+              <img class = "project-image" src="project/img/jasmine.png" alt="Memo of the seniro design project">
+              <a href="projects.html?test-driven-development">
+                view details
+              </a>
+            </div>
+        </div>
+      </div>
+      <div class="section" id="section2">
+        <div class="text-center">
+           <h2>Get Connected</h2>
+           <ul class="zocial-list">
+            <li><a class="zocial-email" target="_blank" href="mailto:zeesun.wu@gmail.com"></a></li>
+            <p>zeesun.wu@gmail.com</p>
+            <li><a class="zocial-linkedin" target="_blank" href="https://www.linkedin.com/in/zhixun"></a></li>
+            <p>https://www.linkedin.com/in/zhixun</p>
+            <li><a class="zocial-github" target="_blank" href="https://github.com/hermanwu"></a></li>
+            <p>http://www.github.com/hermanwu</p>
+            <li><a class="zocial-twitter" target="_blank" href="https://twitter.com/HERMAN_WU"></a></li>
+            <p>https://twitter.com/herman_wu</p>
+          </ul>
 
+        </div>
+      </div>
     </div>
-
     <!-- footer of the website -->
     <div class="footer gray-color">
       <p>&copy; 2015 designed and created by Herman Wu</p>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/fullpage.js/jquery.fullPage.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>

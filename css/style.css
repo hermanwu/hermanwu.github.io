@@ -6,7 +6,7 @@
 [class*="zocial-"]:before {
   font-family: 'zocial', sans-serif;
   width:70vm;
-  font-size: 25px;
+  font-size: 30px;
 }
 /**************************************/
 
@@ -86,7 +86,6 @@ img {
 }
 
 .active {
-    color: #E88;
 }
 
 .nav-selection:hover {
