@@ -3,36 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Herman Portfolio</title>
+    <title>Note | Zeesun Wu (Herman) </title>
+    <link rel="stylesheet" href="bower_components/fullpage.js/jquery.fullPage.css" type="text/css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Josefin+Sans:400,700|Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link href="lib/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-    .paragraph {
-      max-width: 700px;
-      margin: 10px auto;
-      text-align: justify;
-      padding: 5px;
-      font-size: 18px;
-    }
-    .zocial-button-section {
-      margin-top: 20px;
-    }
-    .zocial-list {
-      float:right;
-    }
-    a {
 
-      color: dimgray;
-      text-decoration: none;
-    }
-    a:hover{
-      cursor: pointer;
-      color: black;
-      text-decoration: none;
-    }
+
+
+
+
     </style>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script>
+      // Google Analytics Script
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -40,46 +25,85 @@
 
       ga('create', 'UA-64575910-2', 'auto');
       ga('send', 'pageview');
-
     </script>
   </head>
 
-  <body class="container">
-    <header class="row nav-bar">
-      <div class="col-lg-3 col-md-3 col-xs-12">
-        <a href="index.html" class="logo-anchor">
-          <img class="logo-image" src="img/logo.png" alt="Website logo">
-        </a>
-        <div class= "title">
-          <h4>App Ninja</h4>
+  <body>
+    <nav class="navbar container ADfont" role="navigation">
+      <!-- nav brand -->
+      <div class="navbar-brand col-lg-2 col-md-2 col-xs-12">
+          <a href="index.html" class="logo-anchor">
+            <img class="logo-image" src="img/logo.png" alt="Website logo">
+          </a>
+          <div class= "title gray-color">
+            <h4>Learn More</h4>
+          </div>
+      </div>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="icon-bar">A</span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse navbar-ex1-collapse" style="padding-top: 2px;">
+        <div class="col-lg-8 col-md-8 col-xs-12 nav-container text-center ">
+          <h3 class="text-center nav">
+              <a href="index.html" class="nav-selection col-lg-2 col-md-2 col-xs-12" name="featured">Home</a>
+              <a href="projects.html" class="nav-selection col-lg-2 col-md-2 col-xs-12" name="projects">Projects</a>
+              <a href="note.html" class="nav-selection col-lg-2 col-md-2 col-xs-12" name="note">Note</a>
+              <a href="about.html" class="nav-selection col-lg-2 col-md-2 col-xs-12" name="about">About</a>
+          </h3>
+        </div>
+        <div class="col-lg-2 col-md-2 col-xs-12">
+          <ul class="nav navbar-nav">
+              <li>
+                  <div class="navbar-form navbar-right">
+                      <div class="form-group">
+                          <input id="searchInput" class="searchInput" type="text" class="form-control" placeholder="Search">
+                      </div>
+                      <button id="searchButton" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                  </div>
+              </li>
+          </ul>
         </div>
       </div>
-      <div class="col-lg-6 col-md-6 col-xs-12 nav-container">
-        <nav>
-          <h3 class="text-center">
-            <a href="index.html" class="nav-selection" name="featured">Home</a>
-            <a href="projects.html" class="nav-selection" name="projects">Projects</a>
-            <a href="about.html" class="nav-selection" name="about">About</a>
-          </h3>
-        </nav>
-      </div>
-    </header>
+    </nav>
 
-    <div class="row">
-      <p>I will be posting "random" notes on this page. It can be anything from brillant blogs I read to fun stuff I am currently learning. As time goes, I hope this page can help me not only manage knowledge but also help someone else.
-      </p>
-
-
+    <!--
+    <div class="container nav-bar navbar-fixed-top">
+      <nav class="navbar row">
+        <div class="col-lg-3 col-md-3 col-xs-12">
+          <a href="index.html" class="logo-anchor">
+            <img class="logo-image" src="img/logo.png" alt="Website logo">
+          </a>
+          <div class= "title gray-color">
+            <h4>Learn More</h4>
+          </div>
+        </div>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="col-lg-6 col-md-6 col-xs-12 nav-container">
+            <ul class="nav navbar-nav">
+              <li class="nav-item"><a href="index.html" class="nav-selection" name="featured"><strong>Home</strong></a></li>
+              <li class="nav-item"><a href="projects.html" class="nav-selection" name="projects"><strong>Projects</strong></a></li>
+              <li class="nav-item"><a href="note.html" class="nav-selection" name="note"><strong>Note</strong></a></li>
+              <li class="nav-item"><a href="about.html" class="nav-selection" name="about"><strong>About</strong></a></li>
+            </ul>
+        </div>
+      </nav>
     </div>
-
+    -->
     <!-- footer of the website -->
-    <div class="footer gray-color">
+    <div class="footer gray-color text-center">
       <p>&copy; 2015 designed and created by Herman Wu</p>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>

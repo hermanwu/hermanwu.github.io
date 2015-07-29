@@ -16,6 +16,13 @@
     font-family: 'Architects Daughter', cursive;
 }
 
+.ADfont {
+   font-family: 'Architects Daughter', cursive;
+}
+
+
+
+
 .projects-section,
 .about-section {
     font-family: 'Source Sans Pro', sans-serif;
@@ -85,9 +92,6 @@ img {
     margin: auto 20px;
 }
 
-.active {
-}
-
 .nav-selection:hover {
     color: #E88;
     text-decoration: none;
@@ -97,7 +101,6 @@ img {
     color: #E88;
     text-decoration: none;
 }
-
 
 /* media query */
 /* for mobile device */
