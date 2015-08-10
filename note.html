@@ -9,10 +9,20 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Josefin+Sans:400,700|Architects+Daughter' rel='stylesheet' type='text/css'>
     <style>
-
-
-
-
+      .nav-selection{
+          color: black;
+          margin: auto 20px;
+          font-size: 25px;
+      }
+      .navbar-brand {
+        height: 120px;
+      }
+      .logo-image {
+        height: 100%;
+      }
+      .navbar-collapse.in {
+          overflow-y: visible;
+      }
 
     </style>
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -29,43 +39,35 @@
   </head>
 
   <body>
-    <nav class="navbar container ADfont" role="navigation">
+    <nav class="container" role="navigation">
       <!-- nav brand -->
-      <div class="navbar-brand col-lg-2 col-md-2 col-xs-12">
-          <a href="index.html" class="logo-anchor">
-            <img class="logo-image" src="img/logo.png" alt="Website logo">
-          </a>
-          <div class= "title gray-color">
-            <h4>Learn More</h4>
+      <header class="row">
+        <div class="navbar-brand col-lg-3 col-md-2 col-xs-6">
+            <a href="index.html" class="logo-anchor">
+              <img class="logo-image" src="img/logo.png" alt="Website logo">
+            </a>
+            <div class= "gray-color ADfont">
+              <h4>Learn More</h4>
+            </div>
+        </div>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle top-buffer btn-lg" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <div class="col-lg-6 col-md-8 col-xs-12 nav-container text-center ADfont">
+              <a href="index.html" class="nav-selection" name="featured"><strong>Home</strong></a>
+              <a href="projects.html" class="nav-selection" name="projects">Projects</a>
+              <a href="note.html" class="nav-selection" name="note">Note</a>
+              <a href="about.html" class="nav-selection" name="about">About</a>
           </div>
-      </div>
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="icon-bar">A</span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse navbar-ex1-collapse" style="padding-top: 2px;">
-        <div class="col-lg-8 col-md-8 col-xs-12 nav-container text-center ">
-          <h3 class="text-center nav">
-              <a href="index.html" class="nav-selection col-lg-2 col-md-2 col-xs-12" name="featured">Home</a>
-              <a href="projects.html" class="nav-selection col-lg-2 col-md-2 col-xs-12" name="projects">Projects</a>
-              <a href="note.html" class="nav-selection col-lg-2 col-md-2 col-xs-12" name="note">Note</a>
-              <a href="about.html" class="nav-selection col-lg-2 col-md-2 col-xs-12" name="about">About</a>
-          </h3>
+          <div class="text-right nav-container col-lg-3 col-md-2 col-xs-12">
+            <input id="searchInput" class="searchInput" type="text" size="15" class="form-control" placeholder="Search">
+            <button id="searchButton" class=""><span class="glyphicon glyphicon-search"></span></button>
+          </div>
         </div>
-        <div class="col-lg-2 col-md-2 col-xs-12">
-          <ul class="nav navbar-nav">
-              <li>
-                  <div class="navbar-form navbar-right">
-                      <div class="form-group">
-                          <input id="searchInput" class="searchInput" type="text" class="form-control" placeholder="Search">
-                      </div>
-                      <button id="searchButton" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-                  </div>
-              </li>
-          </ul>
-        </div>
-      </div>
+      </header>
     </nav>
 
     <!--

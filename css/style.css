@@ -56,7 +56,6 @@ span {
 
 h4 {
     text-decoration: none;
-    color: #0060B6;
 }
 
 img {
@@ -106,7 +105,7 @@ img {
 /* for mobile device */
 @media screen and (min-width: 991px) {
     .nav-container {
-        margin-top: 50px;
+        margin-top: 70px;
     }
 }
 /*

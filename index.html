@@ -68,18 +68,7 @@
 
 
     </style>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script>
-      // fullpage.js script
-      $(document).ready(function() {
-        $('#fullpage').fullpage({
-          anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
-          menu: '#menu',
-          scrollBar: true,
-          slidesNavigation: true
-        });
-      });
-
       // Google Analytics Script
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -120,7 +109,7 @@
           <h2>I love</h2>
           <h3 class="red">Javascript and Java</h3>
           <h2>I know</h2>
-          <h4>HTML/CSS, PHP, C#, Python, C, Assembly</h4>
+          <h4>CSS, PHP, C#, Python, C, Assembly</h4>
           <h2>I am learning</h2>
           <h4>AugluarJS</h4>
           <h4>Model Thinking<h4>
@@ -186,10 +175,21 @@
       <p>&copy; 2015 designed and created by Herman Wu</p>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/fullpage.js/jquery.fullPage.js"></script>
+    <script>
+      // fullpage.js script
+      $(document).ready(function() {
+        $('#fullpage').fullpage({
+          anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+          menu: '#menu',
+          scrollBar: true,
+          slidesNavigation: true
+        });
+      });
+    </script>
     <script src="js/script.js"></script>
   </body>
 </html>
