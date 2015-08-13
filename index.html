@@ -4,30 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Portfolio | Zeesun Wu (Herman) </title>
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="bower_components/fullpage.js/jquery.fullPage.css" type="text/css">
+    <link href="bower_components/fullpage.js/jquery.fullPage.css" rel="stylesheet"  type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Josefin+Sans:400,700|Architects+Daughter' rel='stylesheet' type='text/css'>
     <link href="lib/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
     <style>
       /* featured work section */
-      h4 {
-        color: gray;
-      }
-      #header, #footer{
-        height: 70px;
-        display:block;
-        width: 100%;
-        background: white;
-        text-align:center;
-        color: #f2f2f2;
-        padding: 20px 0 0 0;
-      }
-
-      .home-page-section {
-        max-width: 900px;
-        margin: 0 auto;
-      }
-
       .project-image {
           width: 100%; /* or any custom size */
           max-width: 800px;
@@ -37,33 +19,36 @@
           padding: 10px;
           border-width: 3px;
       }
-
-      .project-title {
-          color:dimgray;
-          margin-bottom: 1px;
+      .navbar-default {
+          opacity: 0.75;
       }
 
       .featured-work {
-        padding: 20px;
+          padding: 20px;
+      }
+
+      [class*="zocial-"]:before {
+          font-family: 'zocial', sans-serif;
+          font-size: 4em;
       }
 
         /* Defining each section background and styles
       * --------------------------------------- */
       #section0{
-        background: -webkit-gradient(linear, top left, bottom left, from(#FFFFFF), to(#d6d6d6));
-        background: -webkit-linear-gradient(#FFFFFF, #d6d6d6);
-        background: linear-gradient(#FFFFFF,#d6d6d6);
+        background: -webkit-gradient(linear, top left, bottom left, from(#8aade4), to(#8aade4));
+        background: -webkit-linear-gradient(#8aade4, #8aade4);
+        background: linear-gradient(#8aade4,#8aade4);
       }
 
       #section1{
-        background: -webkit-gradient(linear, top left, bottom left, from(#d6d6d6), to(#eeeeee));
-        background: -webkit-linear-gradient(#d6d6d6, #eeeeee);
-        background: linear-gradient(#d6d6d6,#eeeeee);
+        background: -webkit-gradient(linear, top left, bottom left, from(#74d6c9), to(#74d6c9));
+        background: -webkit-linear-gradient(#74d6c9, #74d6c9);
+        background: linear-gradient(#74d6c9,#74d6c9);
       }
       #section2{
-        background: -webkit-gradient(linear, top left, bottom left, from(#eeeeee), to(#a6a6a6));
-        background: -webkit-linear-gradient(#eeeeee, #a6a6a6);
-        background: linear-gradient(#eeeeee,#a6a6a6);
+        background: -webkit-gradient(linear, top left, bottom left, from(#80ee8c), to(#80ee8c));
+        background: -webkit-linear-gradient(#80ee8c, #80ee8c);
+        background: linear-gradient(#80ee8c,#80ee8c);
       }
 
 
@@ -81,41 +66,45 @@
   </head>
 
   <body>
-    <div class="container nav-bar navbar-fixed-top">
-      <header class="row">
-        <div class="col-lg-3 col-md-3 col-xs-12">
-          <a href="index.html" class="logo-anchor">
-            <img class="logo-image" src="img/logo.png" alt="Website logo">
-          </a>
-          <div class= "title">
-            <h4>Zeesun</h4>
+
+      <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="index.html"><img style="max-height:50px; margin-top: -13px" src="img/logo.png"></a>
+              </div>
+              <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav">
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="projects.html">Projects</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                      <li><a href="about.html">About Me</a></li>
+                  </ul>
+              </div><!--/.nav-collapse -->
           </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-xs-12 nav-container">
-          <nav>
-            <h3 class="text-center">
-              <a href="index.html" class="nav-selection" name="featured">Home</a>
-              <a href="projects.html" class="nav-selection" name="projects">Projects</a>
-              <a href="about.html" class="nav-selection" name="about">About</a>
-            </h3>
-          </nav>
-        </div>
-      </header>
-    </div>
+      </nav>
+
     <!-- Section for Fullpage.js -->
     <div id="fullpage">
       <div class="section " id="section0">
         <div class="text-center">
-          <h2>I love</h2>
-          <h3 class="red">Javascript and Java</h3>
-          <h2>I know</h2>
-          <h4>CSS, PHP, C#, Python, C, Assembly</h4>
-          <h2>I am learning</h2>
-          <h4>AugluarJS</h4>
-          <h4>Model Thinking<h4>
-          <h4>Data Visualization<h4>
-          <h4>Interactive Programming</h4>
-          <h4>Algorithm Design and Analysis</h4>
+          <h1><strong>I love</strong></h1>
+          <h3>Java</h3>
+          <h3>JavaScript</h3>
+          <hr />
+          <h1><strong>I know</strong></h1>
+          <h3>PHP, Python, C#, C, Assembly</h3>
+          <h3>Bootstrap, AngularJS, KnockoutJS, Jasmine</h3>
+          <hr />
+          <h1><strong>I am learning</strong></h1>
+          <h3>NodeJS</h3>
+          <h3>Algorithm Design and Analysis</h3>
         </div>
       </div>
       <!-- Project Section -->
@@ -155,16 +144,12 @@
       </div>
       <div class="section" id="section2">
         <div class="text-center">
-           <h2>Get Connected</h2>
+           <h1>Get Connected</h1>
            <ul class="zocial-list">
             <li><a class="zocial-email" target="_blank" href="mailto:zeesun.wu@gmail.com"></a></li>
-            <p>zeesun.wu@gmail.com</p>
             <li><a class="zocial-linkedin" target="_blank" href="https://www.linkedin.com/in/zhixun"></a></li>
-            <p>https://www.linkedin.com/in/zhixun</p>
             <li><a class="zocial-github" target="_blank" href="https://github.com/hermanwu"></a></li>
-            <p>http://www.github.com/hermanwu</p>
             <li><a class="zocial-twitter" target="_blank" href="https://twitter.com/HERMAN_WU"></a></li>
-            <p>https://twitter.com/herman_wu</p>
           </ul>
 
         </div>

@@ -12,7 +12,6 @@
         width: 1px;
         min-width: 100%;
       }
-
       .project-button:hover {
         color: #E88;
         text-decoration: none;
@@ -38,26 +37,30 @@
   </head>
 
   <body>
-    <div class="container">
-      <header class="row nav-bar">
-        <div class="col-lg-3 col-md-3 col-xs-12">
-          <a href="index.html" class="logo-anchor">
-            <img class="logo-image" src="img/logo.png" alt="Website logo">
-          </a>
-          <div class= "title">
-            <h4>Design & Build</h4>
-          </div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img style="max-height:50px; margin-top: -13px" src="img/logo.png"></a>
         </div>
-        <div class="col-lg-6 col-md-6 col-xs-12 nav-container">
-          <nav>
-            <h3 class="text-center">
-              <a href="index.html" class="nav-selection" name="featured">Home</a>
-              <a href="projects.html" class="nav-selection" name="projects">Projects</a>
-              <a href="about.html" class="nav-selection" name="about">About</a>
-            </h3>
-          </nav>
-        </div>
-      </header>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="about.html">About Me</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="container lg-top-buffer">
+
 
       <div class="container-section bottom-buffer">
         <!-- CREATING section -->
@@ -75,7 +78,7 @@
                 </ul>
               </nav>
               <div class="col-lg-9 col-md-9 col-xs-12">
-                <iframe id ="projects-page-iframe" src="project/personal-review-map.html" frameBorder="0" scrolling="no" onload='resizeIframe(this);'>
+                <iframe id ="projects-page-iframe" src="project/ticket-stats-portal.html" frameBorder="0" scrolling="no" onload='resizeIframe(this);'>
                 </iframe>
               </div>
             </div>

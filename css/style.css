@@ -4,10 +4,11 @@
 
 /* zocial */
 [class*="zocial-"]:before {
-  font-family: 'zocial', sans-serif;
-  width:70vm;
-  font-size: 30px;
+    font-family: 'zocial', sans-serif;
+    width: 70vm;
+    font-size: 30px;
 }
+
 /**************************************/
 
 .nav-container,
@@ -17,11 +18,8 @@
 }
 
 .ADfont {
-   font-family: 'Architects Daughter', cursive;
+    font-family: 'Architects Daughter', cursive;
 }
-
-
-
 
 .projects-section,
 .about-section {
@@ -30,11 +28,12 @@
 
 .footer {
     position: fixed;
-    bottom: 0;
+    bottom: -0.5em;
     width: 100%;
-    padding: 0 0 0 5px;
+    padding: 0 0 0 0;
     background: #fff;
-    opacity: 0.85;
+    opacity: 0.75;
+    text-align: center;
 }
 
 html {
@@ -45,14 +44,21 @@ a,
 ul {
     cursor: pointer;
     text-decoration: none;
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: grey;
+}
+
+a:hover{
+    text-decoration: none;
 }
 
 span {
     color: gray;
 }
-
 
 h4 {
     text-decoration: none;
@@ -64,29 +70,33 @@ img {
     margin-right: auto;
 }
 
-.gray-color{
+.gray-color {
     color: gray;
 }
 
-.nav-bar{
+.nav-bar {
     margin: 20px 0 20px 0;
 }
 
 .top-buffer {
-    margin-top:50px;
+    margin-top: 50px;
+}
+
+.lg-top-buffer {
+    margin-top: 80px;
 }
 
 .bottom-buffer {
-    margin-bottom:50px;
+    margin-bottom: 50px;
 }
 
 /* header section */
 .logo-image {
-    float:left;
-    height:100px;
+    float: left;
+    height: 100px;
 }
 
-.nav-selection{
+.nav-selection {
     color: black;
     margin: auto 20px;
 }
@@ -108,6 +118,7 @@ img {
         margin-top: 70px;
     }
 }
+
 /*
 @media screen and (max-width: 600px) {
     .container {
