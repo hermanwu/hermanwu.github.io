@@ -113,9 +113,9 @@ img {
 
 /* media query */
 /* for mobile device */
-@media screen and (min-width: 991px) {
-    .nav-container {
-        margin-top: 70px;
+@media screen and (max-width: 991px) {
+    .project-side-menu {
+        position: relative;
     }
 }
 

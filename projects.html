@@ -16,6 +16,18 @@
         color: #E88;
         text-decoration: none;
       }
+      .project-side-menu {
+        position: fixed;
+      }
+      .project-main-content {
+        float: right;
+      }
+      @media screen and (max-width: 991px) {
+        .project-side-menu {
+          position: relative;
+        }
+      }
+
     </style>
     <script>
       function resizeIframe(obj) {
@@ -66,7 +78,7 @@
         <!-- CREATING section -->
         <div class="projects-section section">
             <div class="row">
-              <nav class="col-lg-3 col-md-3 col-xs-12">
+              <div class="project-side-menu col-lg-3 col-md-3 col-xs-12">
                 <ul>
                   <li class="project-button personal-review-map" value="personal-review-map.html"><h4>yelp review map</h4></li>
                   <li class="project-button ticket-stats-portal" value="ticket-stats-portal.html"><h4>ticket stats portal</h4></li>
@@ -76,8 +88,8 @@
                   <li class="project-button aircraft-schedule-optimization" value="aircraft-schedule-optimization.html"><h4>aircraft schedule optimization</h4></li>
 
                 </ul>
-              </nav>
-              <div class="col-lg-9 col-md-9 col-xs-12">
+              </div>
+              <div class="project-main-content col-lg-9 col-md-9 col-xs-12">
                 <iframe id ="projects-page-iframe" src="project/ticket-stats-portal.html" frameBorder="0" scrolling="no" onload='resizeIframe(this);'>
                 </iframe>
               </div>
