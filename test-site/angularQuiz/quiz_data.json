@@ -1,0 +1,62 @@
+[
+    {
+        "question" : "Javascript is _______ typing language",
+        "answers"  : [
+            {"id"  : 0, "text" : "weak and dynmaic"},
+            {"id"  : 1, "text" : "strong and dynmaic"},
+            {"id"  : 2, "text" : "weak and static"},
+            {"id"  : 3, "text" : "strong and static"}
+        ],
+        "correct"  : 0,
+        "feedback" : "Static is when type checking occurs at compile time; Strong typing means direct manipulation of the objects of the data type"
+    },
+    {
+        "question" : "What value is not falsey in Javascript",
+        "answers"   : [
+            {
+                "id" : 0,
+                "text" : "' '"
+            },
+            {
+                "id" : 1,
+                "text" : "0"
+            },
+            {
+                "id" : 2,
+                "text" : "undefined"
+            },
+            {
+                "id" : 3,
+                "text" : "null"
+            },
+            {
+                "id" : 4,
+                "text" : "NaN"
+            },
+            {
+                "id" : 5,
+                "text" : "[ ]"
+            }
+        ],
+        "correct" : 5
+
+    },
+    {
+        "question" : "Which library can be used for back end development",
+        "answers"  : [
+            {"id"  : 0, "image" : "images/knockout.png" },
+            {"id"  : 1, "image" : "images/jasmine.png" },
+            {"id"  : 2, "image" : "images/meteor.png" },
+            {"id"  : 3, "image" : "images/angular.png" }
+        ],
+        "correct"  : 2
+    },
+    {
+        "question" : "In Javascript, ' ' == 0 ?",
+        "answers"  : [
+            {"id"  : 0, "text" : "True"},
+            {"id"  : 1, "text" : "False"}
+        ],
+        "correct"  : 0
+    }
+]
